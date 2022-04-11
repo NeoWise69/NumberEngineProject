@@ -145,12 +145,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\glad\glad.vcxproj">
+      <Project>{76914bd8-48d2-45e8-ab58-2d1cb183576b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\glfw\glfw.vcxproj">
+      <Project>{195fe4ad-9c05-408e-a5b6-0b885afca361}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\NumberEngine.Import\NumberEngine.Import.vcxproj">
+      <Project>{63f63834-ed21-4a90-807a-9f3d4d52d9a2}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\NumberEngine\NumberEngine.vcxproj">
       <Project>{241d3e5c-bebd-43dc-ae6a-5f3c8900922a}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Default.fx">
@@ -160,6 +166,9 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
       <FileType>Document</FileType>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Testbed.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

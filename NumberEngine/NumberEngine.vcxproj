@@ -19,31 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\NumberEngine.hpp" />
-    <ClInclude Include="Include\NumberEngine\Core\Input.hpp" />
-    <ClInclude Include="Include\NumberEngine\Core\Keys.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\WindowEvent.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\Event.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\KeyboardEvent.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\MouseEvent.hpp" />
-    <ClInclude Include="Include\NumberEngine\Math\CB.hpp" />
-    <ClInclude Include="Include\NumberEngine\Math\Math.hpp" />
-    <ClInclude Include="Include\NumberEngine\Math\Matrix.hpp" />
-    <ClInclude Include="Include\NumberEngine\Math\Vectors.hpp" />
-    <ClInclude Include="Include\NumberEngine\Math\Vertex.hpp" />
-    <ClInclude Include="Include\NumberEngine\Minimal.hpp" />
-    <ClInclude Include="Include\NumberEngine\Rendering\RenderEngine.hpp" />
-    <ClInclude Include="Include\NumberEngine\Rendering\Window.hpp" />
     <ClInclude Include="Include\NumberEngine\Core\Time.hpp" />
+    <ClInclude Include="Include\NumberEngine\Minimal.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Math.cpp" />
-    <ClCompile Include="Source\Matrix.cpp" />
     <ClCompile Include="Source\Point.cpp" />
-    <ClCompile Include="Source\Vectors.cpp" />
     <ClCompile Include="Source\Time.cpp" />
-    <ClCompile Include="Source\RenderEngine.cpp" />
-    <ClCompile Include="Source\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\glad\glad.vcxproj">
+      <Project>{76914bd8-48d2-45e8-ab58-2d1cb183576b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\glfw\glfw.vcxproj">
+      <Project>{195fe4ad-9c05-408e-a5b6-0b885afca361}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\NumberEngine.Import\NumberEngine.Import.vcxproj">
+      <Project>{63f63834-ed21-4a90-807a-9f3d4d52d9a2}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -108,11 +104,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ENTT;$(SolutionDir)GLM;$(ProjectDir)Include;$(SolutionDir)NumberEngine.Import\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ENTT;$(SolutionDir)GLM;$(ProjectDir)Include;$(SolutionDir)NumberEngine.Import\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -153,7 +149,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NUMBERENGINE_IMPORTER_DLL;_DEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -176,7 +172,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NUMBERENGINE_IMPORTER_DLL;NDEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>

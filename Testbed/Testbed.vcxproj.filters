@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
+    <Text Include="Default.fx" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Default.fx" />
+    <ClCompile Include="Testbed.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

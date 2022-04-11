@@ -48,3 +48,4 @@ namespace Num {
 }
 
 #define ARRSIZE(_array_) (sizeof(_array_) / sizeof(_array_[0]))
+#define NULL 0
