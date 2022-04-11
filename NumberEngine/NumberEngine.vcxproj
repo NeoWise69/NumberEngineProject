@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\NumberEngine\Core\Application.hpp" />
+    <ClInclude Include="Include\NumberEngine\Core\Entry.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\WindowEvent.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\Event.hpp" />
     <ClInclude Include="Include\NumberEngine\Events\KeyboardEvent.hpp" />
@@ -27,6 +29,7 @@
     <ClInclude Include="Include\NumberEngine\Minimal.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Point.cpp" />
     <ClCompile Include="Source\Time.cpp" />
   </ItemGroup>
@@ -67,7 +70,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>true</EnableUnitySupport>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -104,11 +107,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)ENTT;$(SolutionDir)GLM;$(ProjectDir)Include;$(SolutionDir)NumberEngine.Import\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ENTT;$(SolutionDir)glad\Include;$(SolutionDir)glfw\Source;$(SolutionDir)glfw\Include;$(SolutionDir)GLM;$(ProjectDir)Include;$(SolutionDir)NumberEngine.Import\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)ENTT;$(SolutionDir)GLM;$(ProjectDir)Include;$(SolutionDir)NumberEngine.Import\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ENTT;$(SolutionDir)glad\Include;$(SolutionDir)glfw\Source;$(SolutionDir)glfw\Include;$(SolutionDir)GLM;$(ProjectDir)Include;$(SolutionDir)NumberEngine.Import\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,7 +152,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NUMBERENGINE_IMPORTER_DLL;_DEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NUMBERENGINE_IMPORTER_DLL;GLFW_DLL;GLAD_GLAPI_EXPORT;_DEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -172,7 +175,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NUMBERENGINE_IMPORTER_DLL;NDEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NUMBERENGINE_IMPORTER_DLL;GLFW_DLL;GLAD_GLAPI_EXPORT;NDEBUG;NUMBERENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>

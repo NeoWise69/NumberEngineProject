@@ -2,12 +2,15 @@
 
 #ifdef _DLL
 #	define APIEXPORT __declspec(dllexport)
+#	define NUM_DLL
 #else
 #	define APIEXPORT __declspec(dllimport)
+#	define NUM_APP
 #endif
 
 #include <cfloat>
 #include <string>
+#include <memory>
 
 namespace Num {
 
@@ -45,7 +48,30 @@ namespace Num {
 	APIEXPORT Bool operator==(const Point& p0, const Point& p1);
 	APIEXPORT Bool operator!=(const Point& p0, const Point& p1);
 
+	// Helpers for memory management
+	template<class T>
+	using Ref = std::shared_ptr<T>;
+
+	template<class T, class...Args>
+	constexpr Ref<T> CreateRef(Args... args) {
+		return std::make_shared<T>(std::forward<Args>(args)...);
+	}
+
+	template<class T>
+	using Unique = std::unique_ptr<T>;
+
+	template<class T, class...Args>
+	constexpr Unique<T> CreateUniqie(Args... args) {
+		return std::make_unique<T>(std::forward<Args>(args)...);
+	}
+
 }
 
 #define ARRSIZE(_array_) (sizeof(_array_) / sizeof(_array_[0]))
 #define NULL 0
+
+// Pimpl mechanics
+// See https://en.cppreference.com/w/cpp/language/pimpl for more information
+
+#define NCLASS(name) class name ## Impl;
+#define NCLASSEND(name) struct { Num::Ref<name ## Impl> data; } pimpl;
